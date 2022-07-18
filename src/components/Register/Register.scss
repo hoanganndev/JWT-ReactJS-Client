@@ -1,0 +1,134 @@
+@import
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+.register-container{
+  font-family: "Poppins", sans-serif;
+  background: #f0f2f5;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  .content-left{
+    padding-top: 55px;
+    .brand{
+      h1{
+        color: #030303;
+        font-family: math;
+        font-size: 60px;
+        letter-spacing: 5px;
+      }
+      p{
+        letter-spacing: 5px;
+        color: #640a0a;
+        font-size: 23px;
+      }
+    }
+    .detail{
+      font-size: 20px;
+      font-weight: normal;
+      color: #836969;
+      letter-spacing: 5px;
+      line-height: 30px;
+      font-style: italic;
+    }
+  }
+  .content-right{
+    background: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    .header{
+      h1 {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #000000;
+      }
+      p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: #737373;
+      }
+    }
+    .form-group{
+      label {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: #737373;
+      }
+      input {
+          background: #ffffff;
+          border: 1px solid #bcbcbc;
+          border-radius: 8px;
+      }
+    }
+    .forgot-password{
+      color:#86ffe9
+    }
+    .signup{
+      width: 100%;
+      height: 42px;
+      background: #000000;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+      &:hover{
+        background-color: transparent;
+       border: 1px solid  #640a0a;
+       color: #640a0a;
+      }
+    }
+    .social{
+      i{
+        font-size: 27px;
+        margin: 10px 10px 10px 10px;
+      }
+      .fa-google{
+        color: #f10b0b;
+      }
+      .fa-facebook{
+      color: #0a20e7;
+      }
+    }
+    .forgot-password{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      color: #737373;
+      display: block;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .re-signin{
+      font-weight: 600;
+      color: #640a0a;
+      &:hover{
+        color: #636060;
+      }
+    }
+    .return-home{
+      a{
+        text-decoration: none;
+        color: #640a0a;
+      }
+    }
+    .return-home:hover>a{
+      color: #912831;
+    }
+    .password{
+      margin-right: 10px;
+    }
+  }
+}
+@media (max-width: 575.98px){
+  .register-container{
+    .content-right{
+      .password{
+        margin-right: 0;
+      }
+    }
+  }
+}
