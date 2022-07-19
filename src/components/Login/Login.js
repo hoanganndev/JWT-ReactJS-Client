@@ -1,10 +1,53 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { loginUser_Client } from "../../services/userServices_Client";
 import "./Login.scss";
+import { toast } from "react-toastify";
+
 const Login = () => {
     const history = useHistory();
-    const handleCreateNewAccount = () => {
+    const forwardToRegisterPage = () => {
         history.push("/register");
+    };
+    const [valueLogin, setValueLogin] = useState("");
+    const [password, setPassword] = useState("");
+    const dafaultValidInput = {
+        isValidValueLogin: true,
+        isValidPassword: true,
+    };
+    const [objCheckInput, setOpjCheckInput] = useState(dafaultValidInput);
+
+    const handleLogin = async () => {
+        setOpjCheckInput(dafaultValidInput);
+        if (!valueLogin) {
+            setOpjCheckInput({
+                ...dafaultValidInput,
+                isValidValueLogin: false,
+            });
+            toast.warning("Please enter your email address or phone number !");
+            return;
+        }
+        if (!password) {
+            setOpjCheckInput({
+                ...dafaultValidInput,
+                isValidPassword: false,
+            });
+            toast.warning("Please enter your password !");
+            return;
+        }
+        let res = await loginUser_Client(valueLogin, password);
+        if (res && +res.errorCode === 0) {
+            history.push("/users");
+        }
+        if (res && +res.errorCode !== 0) {
+            toast.error(res.errorMessage);
+        }
+    };
+
+    const handlePressEnter = e => {
+        if (e.charCode === 13 && e.code === "Enter") {
+            handleLogin();
+        }
     };
     return (
         <>
@@ -35,9 +78,17 @@ const Login = () => {
                                 </label>
                                 <input
                                     id="input-email-phone"
-                                    className="form-control "
                                     placeholder="Email address or phone number"
                                     type="text"
+                                    className={
+                                        objCheckInput.isValidValueLogin
+                                            ? "form-control py-2"
+                                            : "form-control py-2 is-invalid"
+                                    }
+                                    value={valueLogin}
+                                    onChange={e =>
+                                        setValueLogin(e.target.value)
+                                    }
                                 />
                             </div>
                             <div className="form-group">
@@ -49,13 +100,23 @@ const Login = () => {
                                 </label>
                                 <input
                                     id="input-password"
-                                    className="form-control "
                                     placeholder="Enter your password"
                                     type="password"
+                                    className={
+                                        objCheckInput.isValidPassword
+                                            ? "form-control py-2"
+                                            : "form-control py-2 is-invalid"
+                                    }
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    onKeyPress={e => handlePressEnter(e)}
                                 />
                             </div>
 
-                            <button className="btn btn-login  signin">
+                            <button
+                                className="btn btn-login  signin"
+                                onClick={() => handleLogin()}
+                            >
                                 Sign in
                             </button>
                             <div>
@@ -85,7 +146,7 @@ const Login = () => {
                                     <button
                                         type="btn"
                                         className="btn signup d-inline"
-                                        onClick={() => handleCreateNewAccount()}
+                                        onClick={() => forwardToRegisterPage()}
                                     >
                                         Sign up for free
                                     </button>
