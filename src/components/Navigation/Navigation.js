@@ -3,8 +3,8 @@ import "./Navigation.scss";
 const Navigation = () => {
     return (
         <div>
-            <div class="topnav">
-                <a class="active" href="/">
+            <div className="topnav">
+                <a className="active" href="/">
                     Home
                 </a>
                 <a href="/check1">check 1</a>

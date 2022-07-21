@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { loginUser_Client } from "../../services/userServices_Client";
+import { loginUser_Client } from "../../services/userService_Client";
 import "./Login.scss";
 import { toast } from "react-toastify";
 

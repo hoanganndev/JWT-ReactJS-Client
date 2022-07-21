@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { registerNewUser_Client } from "../../services/userServices_Client";
+import { registerNewUser_Client } from "../../services/userService_Client";
 import "./Register.scss";
 
 const Register = () => {

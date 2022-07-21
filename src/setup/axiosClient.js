@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+
 const axiosClient = axios.create({
     baseURL: process.env.REACT_APP_BACKEND_URL,
     headers: {
@@ -7,8 +8,9 @@ const axiosClient = axios.create({
     },
 });
 
-// Auto send cookies
+// Automatically attach cookies from req to server
 axiosClient.defaults.withCredentials = true;
+
 // Bearer token
 axiosClient.defaults.headers.common[
     "Authorization"
