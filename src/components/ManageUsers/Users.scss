@@ -1,0 +1,25 @@
+@import
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+.manage-users-container{
+  font-family: "Poppins", sans-serif;
+  .user-header{
+    .tabel-users{
+      font-weight: 400;
+    }
+  }
+  .user-body{
+   .edit-icon{
+    font-size: 18px;
+   }
+   .delete-icon{
+    font-size: 18px;
+   }
+  }
+}
+.modal-user{
+  .content-body{
+    .red-point{
+      color: red;
+    }
+  }
+}
