@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { loginUser_Client } from "../../services/userService_Client";
 import "./Login.scss";
 import { toast } from "react-toastify";
+import { UserContext } from "../../context/userContext";
 
 const Login = () => {
+    const { loginContext } = useContext(UserContext);
     const history = useHistory();
     const forwardToRegisterPage = () => {
         history.push("/register");
@@ -37,6 +39,15 @@ const Login = () => {
         }
         let res = await loginUser_Client(valueLogin, password);
         if (res && +res.errorCode === 0) {
+            // Login success
+            let { email, username, access_token, groupWithRoles } = res.data;
+            let data = {
+                isAuthenticated: true, // True when user login sucess
+                token: access_token,
+                account: { groupWithRoles, email, username },
+            };
+            localStorage.setItem("jwt", access_token);
+            loginContext(data);
             history.push("/users");
         }
         if (res && +res.errorCode !== 0) {

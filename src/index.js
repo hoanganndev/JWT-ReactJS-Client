@@ -6,10 +6,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { UserProvider } from "./context/userContext"; // We can use redux to repalce context in this case
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <UserProvider>
+            <App />
+        </UserProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );

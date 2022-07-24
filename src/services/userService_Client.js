@@ -42,6 +42,13 @@ const updateCurrentUser_Client = userData => {
     });
 };
 
+const getUserAccount_Client = () => {
+    return axiosClient.get("/api/v1/account");
+};
+
+// const logoutUser = () => {
+//     return axiosClient.get("/api/v1/logout");
+// };
 export {
     registerNewUser_Client,
     loginUser_Client,
@@ -50,4 +57,5 @@ export {
     fetchGroups_Client,
     createNewUser_Client,
     updateCurrentUser_Client,
+    getUserAccount_Client,
 };

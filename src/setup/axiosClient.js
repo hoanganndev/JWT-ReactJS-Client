@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const axiosClient = axios.create({
+const instance = axios.create({
     baseURL: process.env.REACT_APP_BACKEND_URL,
     headers: {
         "Content-Type": "application/json",
@@ -9,10 +9,10 @@ const axiosClient = axios.create({
 });
 
 // Automatically attach cookies from req to server
-axiosClient.defaults.withCredentials = true;
+instance.defaults.withCredentials = true;
 
 // Bearer token
-axiosClient.defaults.headers.common[
+instance.defaults.headers.common[
     "Authorization"
 ] = `Bearer ${localStorage.getItem("jwt")}`;
 
@@ -29,16 +29,16 @@ axios.interceptors.request.use(
 );
 
 // Add a response interceptor
-axiosClient.interceptors.response.use(
+instance.interceptors.response.use(
     function (response) {
         return response.data;
     },
     function (error) {
         const status = error && error.response ? error.response.status : 500;
         switch (status) {
-            //! authentication (token related issues)
+            // authentication (token related issues)
             case 401: {
-                //! when the path is one of these below, no message is displayed
+                // when the path is one of these below, no message is displayed
                 if (
                     window.location.pathname !== "/" &&
                     window.location.pathname !== "/login" &&
@@ -46,44 +46,44 @@ axiosClient.interceptors.response.use(
                 ) {
                     toast.error(error.response.data.errorMessage);
                 }
-                toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
-            //! forbidden (permission related issues)
+
+            // forbidden (permission related issues)
             case 403: {
                 toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
 
-            //! bad request
+            // bad request
             case 400: {
                 toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
 
-            //! not found
+            // not found
             case 404: {
                 toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
 
-            //! conflict
+            // conflict
             case 409: {
                 toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
 
-            //! unprocessable
+            // unprocessable
             case 422: {
                 toast.error(error.response.data.errorMessage);
-                return error.response.data;
+                return;
             }
 
-            //! generic api error (server related) unexpected
+            // generic api error (server related) unexpected
             default: {
                 return error.response;
             }
         }
     }
 );
-export default axiosClient;
+export default instance;
