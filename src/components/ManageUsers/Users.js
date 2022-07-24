@@ -14,13 +14,13 @@ const Users = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentLimit, setCurrentLimit] = useState(3);
     const [totalPages, setTotalPages] = useState(0);
-    //🔥 Check show for model delete
+    // Check show for model delete
     const [isShowModalDelete, setIsShowModalDelete] = useState(false);
     const [dataModalDelete, setDataModalDelete] = useState({}); // User is deleted
-    //🔥 Check show for model user
+    // Check show for model user
     const [isShowModalUser, setIsShowModalUser] = useState(false);
     const [dataModalUser, setDataModalUser] = useState({}); // User data to update
-    //🔥 Action to know that when we're need update or create new user
+    // Action to know that when we're need update or create new user
     const [actionModalUser, setActionModalUser] = useState("CREATE");
     useEffect(() => {
         fetchAllUsers();
