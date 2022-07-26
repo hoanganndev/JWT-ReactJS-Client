@@ -1,9 +1,9 @@
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #fdf9f9;
   a {
     float: left;
-    color: #f2f2f2;
+    color: #893838;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -14,8 +14,59 @@
     color: black;
   }
   a.active {
-    background-color: #04AA6D;
+    background-color: #a7697a;
     color: white;
   }
 }
-
+.nav-header{
+  padding-bottom: 0.5rem;
+  .navbar{
+    padding-bottom: 0 !important;
+  }
+  .nav-link{
+    &.active{
+      color: #893838;
+      border-bottom: 2px solid;
+    }
+  }
+  .nav-brand-name{
+    border-bottom: 0 !important;
+    .image{
+      width: 100px;
+    }  
+  }
+  #responsive-navbar-nav{
+    .navbar-left{
+      a{
+        font-size: 18px;
+        &:hover{
+          color: #e6d2db!important;
+        }
+      }
+      a.active{
+        color:#db3131 !important;
+        font-weight: 600;
+      }
+    }
+    .navbar-right{
+      font-size: 18px;
+      .nav{
+        &-user{
+          text-transform:capitalize;
+          font-weight: 500;
+          color:#b83333 !important
+        }
+        &-login{
+          font-weight: 500;
+          color: #b83333 !important;
+        }
+      }
+     
+      .configs{
+        font-size: 20px;
+      }
+    }
+  }
+ 
+ 
+}

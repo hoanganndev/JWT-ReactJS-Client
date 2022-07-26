@@ -1,0 +1,40 @@
+@import
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+.role-container{
+  font-family: "Poppins", sans-serif;
+  .title-role{
+    font-weight: 600;
+  }
+  .actions{
+    padding-top: 17px;
+    i{
+      font-size: 25px;
+      cursor: pointer;
+    }
+   .add{
+      color: green;
+   }
+   .delete{
+      color: red;
+   }
+   
+  }
+  .tabel-role {
+    .delete,.edit{
+      cursor: pointer;
+      color:red;
+      font-size: 20px;
+    }
+    .delete{
+     
+      color:rgb(165, 0, 0)
+     
+    }
+    .edit{
+      color: rgb(226, 127, 14);
+      .save{
+        color: green;
+      }
+    }
+  }
+}

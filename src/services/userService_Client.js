@@ -26,10 +26,6 @@ const deleteUser_Client = user => {
     });
 };
 
-const fetchGroups_Client = () => {
-    return axiosClient.get("/api/v1/group/read");
-};
-
 const createNewUser_Client = userData => {
     return axiosClient.post("/api/v1/user/create", {
         ...userData,
@@ -46,16 +42,17 @@ const getUserAccount_Client = () => {
     return axiosClient.get("/api/v1/account");
 };
 
-// const logoutUser = () => {
-//     return axiosClient.get("/api/v1/logout");
-// };
+const logoutUser_Client = () => {
+    return axiosClient.get("/api/v1/logout");
+};
+
 export {
     registerNewUser_Client,
     loginUser_Client,
     fetchAllUsers_Client,
     deleteUser_Client,
-    fetchGroups_Client,
     createNewUser_Client,
     updateCurrentUser_Client,
     getUserAccount_Client,
+    logoutUser_Client,
 };

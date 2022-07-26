@@ -12,7 +12,7 @@ import "./Users.scss";
 const Users = () => {
     const [usersList, setUsersList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [currentLimit, setCurrentLimit] = useState(3);
+    const [currentLimit, setCurrentLimit] = useState(6);
     const [totalPages, setTotalPages] = useState(0);
     // Check show for model delete
     const [isShowModalDelete, setIsShowModalDelete] = useState(false);

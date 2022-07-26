@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { registerNewUser_Client } from "../../services/userService_Client";
 import "./Register.scss";
+import { UserContext } from "../../context/userContext";
 
 const Register = () => {
+    const { user } = useContext(UserContext);
     const history = useHistory();
     const forwardToLoginPage = () => {
         history.push("/login");
@@ -103,6 +105,12 @@ const Register = () => {
             handleRegister();
         }
     };
+
+    useEffect(() => {
+        if (user && user.isAuthenticated) {
+            history.push("/");
+        }
+    }, [user]);
 
     return (
         <>

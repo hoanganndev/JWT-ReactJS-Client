@@ -1,10 +1,10 @@
+@import
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 .homepage-container{
-
-
+  font-family: "Poppins", sans-serif;
   .project-info {
     letter-spacing: 6px;
     line-height: 50px;
-    font-family: 'Bitter', serif;
     text-align: center;
     .text1{
       color: #ee6972;
@@ -19,7 +19,6 @@
   .my-info {
     letter-spacing: 3px;
     line-height: 50px;
-    font-family: 'Bitter', serif;
     text-align: center;
     .text1{
       color: #ee6972;
