@@ -1,3 +1,9 @@
 .page-wrap {
   min-height: 90vh;
+  .btn-link{
+    color: #640a0a;
+    &:hover{
+      color: #3b50ca;
+    }
+  }
 }

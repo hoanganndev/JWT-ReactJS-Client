@@ -4,15 +4,9 @@ const HomePage = () => {
     return (
         <div className="container homepage-container">
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 mt-3">
                     <div className="project-info ">
                         <div className="text1 ">Hi! I'm Marcus</div>
-                        <div className="text2 ">
-                            This is user authentication project
-                        </div>
-                        <div className="text3">
-                            Using Reactjs for client & Nodejs(mysql) for server
-                        </div>
                     </div>
                     <div className="my-info">
                         <div className="text1 ">

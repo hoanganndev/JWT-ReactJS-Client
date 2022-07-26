@@ -4,9 +4,9 @@ import { Button, Modal } from "react-bootstrap";
 import { toast } from "react-toastify";
 import {
     createNewUser_Client,
-    fetchGroups_Client,
     updateCurrentUser_Client,
 } from "../../services/userService_Client";
+import { fetchGroups_Client } from "../../services/groupService_Client";
 
 const ModalUser = props => {
     const defautlUserData = {
